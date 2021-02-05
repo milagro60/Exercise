@@ -1,0 +1,19 @@
+import warnings
+warnings.filterwarnings("ignore") 
+from IPython.core.display import display, HTML
+import time
+import pandas as pd
+import pandas_datareader.data as web
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from sklearn.datasets import make_moons
+random_state = 21
+X_mn, y_mn = make_moons(150, noise=.07, random_state=random_state)
+cmap = 'viridis'
+dot_size=50
+fig, ax = plt.subplots(figsize=(9,7))
+ax.set_title('Data with ground truth labels - linear separation not possible', fontsize=18, fontweight='demi')
+ax.scatter(X_mn[:, 0], X_mn[:, 1],c=y_mn,s=dot_size, cmap=cmap)
